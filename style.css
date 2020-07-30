@@ -1,0 +1,48 @@
+h1, p {
+  font-family: Lato;
+}
+
+.front {
+  transform-style: preserve-3d;
+  height: 100px;
+  background-color: rgba(200, 200, 200, 0.1);
+  border: 1px solid silver;
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+}
+
+.joint {
+  transform-style: preserve-3d;
+  border: 1px solid red;
+  position: absolute;
+  top: 0px;
+  left: 0px;  
+}
+
+.bottom {
+  transform-style: preserve-3d;
+  border: 1px solid blue;
+  width: 200px;
+  height: 30px;
+  background-color: rgba(0, 0, 255, 0.5);
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+
+
+
+
+.Tank {
+  display: grid;
+  position: absolute;
+  background-color: snow;
+height: 450px;
+  width: 900px;
+}
+

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-//import Tank from './Tank';
-import DiscWrapper from './containers/DiscWrapper';
-//import Disc from './Disc';
+import Tank from './Tank';
+//import DiscWrapper from './containers/DiscWrapper';
+import Disc from './Disc';
 import './style.css';
 
 import { Provider } from 'react-redux'
@@ -29,9 +29,7 @@ class App extends Component<AppProps, AppState> {
   render() {
     return (
       <Provider store={store}>
-        <div>
-          <DiscWrapper />
-        </div>
+          <Tank />
       </Provider>
     );
   }

@@ -29,7 +29,7 @@ h1, p {
   width: 200px;
   height: 30px;
   background-color: rgba(0, 0, 255, 0.5);
-  position: relative;
+  position: absolute;
   top: 0px;
   left: 0px;
 }
@@ -39,9 +39,9 @@ h1, p {
 
 
 .Tank {
-  display: grid;
+//  display: grid;
   position: absolute;
-  background-color: snow;
+  background-color: antiquewhite;
 height: 450px;
   width: 900px;
 }

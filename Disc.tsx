@@ -10,6 +10,9 @@ interface DiscProps {
   innerHTMLForFrontFront: string;
   backgroundColor: string;
   dispatch: Dispatch<any>;
+  angleOfFront: any,
+  top: any;
+  left: any;
 }
 
 interface DiscState {
@@ -22,11 +25,15 @@ export default class Disc extends Component<DiscProps, DiscState> {
   public static defaultProps: DiscProps = {
     innerHTMLForFrontFront: "",
     backgroundColor: "none",
-    dispatch: null
+    dispatch: null,
+    angleOfFront: 0,
+    top: 0,
+    left: 0
   };
 
   routines: any[];
   timer;
+  domain = React.createRef<HTMLDivElement>();
   bottom = React.createRef<HTMLDivElement>();
   front = React.createRef<HTMLDivElement>();
 
@@ -51,9 +58,9 @@ export default class Disc extends Component<DiscProps, DiscState> {
 
     // as HTMLCollectionOf<HTMLElement>
 //    this.bottom.current.style.transform += "rotateX(45deg)";
-//    this.front.current.style.transform += "rotateX(45deg)";
+    this.front.current.style.transform += 'rotateX(' + this.props.angleOfFront + ')';
     
-    this.props.dispatch(doIt("結ぶ<br />coat 醤油<br />炙る"));
+//    this.props.dispatch(doIt("結ぶ<br />coat 醤油<br />炙る"));
 /*
     new Promise((resolve, reject) => {setTimeout(resolve, 1000);}).then(() => {
       this.setState({innerHTMLForFrontFront: 
@@ -88,7 +95,7 @@ export default class Disc extends Component<DiscProps, DiscState> {
 
   render() {
     return (
-      <div>
+      <div ref={this.domain} style={{position: 'relative', top: this.props.top, left: this.props.left}}>
         <div ref={this.bottom} className="bottom">bottom
           <div ref="joint" className="joint">
             <div ref={this.front} className="front" onClick={(e) => {this.onClickForFront(e);}}>

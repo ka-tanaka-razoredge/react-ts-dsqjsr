@@ -35,6 +35,7 @@ export default class Disc extends Component<DiscProps, DiscState> {
   timer;
   domain = React.createRef<HTMLDivElement>();
   bottom = React.createRef<HTMLDivElement>();
+  joint = React.createRef<HTMLDivElement>();
   front = React.createRef<HTMLDivElement>();
 
   doRoutine = (function() {
@@ -58,7 +59,7 @@ export default class Disc extends Component<DiscProps, DiscState> {
 
     // as HTMLCollectionOf<HTMLElement>
 //    this.bottom.current.style.transform += "rotateX(45deg)";
-    this.front.current.style.transform += 'rotateX(' + this.props.angleOfFront + ')';
+    this.joint.current.style.transform += 'rotateX(' + this.props.angleOfFront + ')';
     
 //    this.props.dispatch(doIt("結ぶ<br />coat 醤油<br />炙る"));
 /*
@@ -81,7 +82,7 @@ export default class Disc extends Component<DiscProps, DiscState> {
   }
 
   onClickForFront(e) {
-    this.props.dispatch(doIt("a", "red"));
+//    this.props.dispatch(doIt("a", "red"));
   }
 
   redraw() {
@@ -96,8 +97,8 @@ export default class Disc extends Component<DiscProps, DiscState> {
   render() {
     return (
       <div ref={this.domain} style={{position: 'relative', top: this.props.top, left: this.props.left}}>
-        <div ref={this.bottom} className="bottom">bottom
-          <div ref="joint" className="joint">
+        <div ref={this.bottom} className="bottom">
+          <div ref={this.joint} className="joint">
             <div ref={this.front} className="front" onClick={(e) => {this.onClickForFront(e);}}>
               {this.redraw()}
               <span dangerouslySetInnerHTML={this.drawFrontFront()}></span>

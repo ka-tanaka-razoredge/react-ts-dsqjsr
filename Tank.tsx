@@ -11,6 +11,10 @@ interface TankProps {
 
 export default class Tank extends Component {
 //export default class Tank extends Component<TankProps> {
+  terrain = React.createRef<HTMLDivElement>();
+  ceiling = React.createRef<HTMLDivElement>();
+
+
 /*  
   constructor(props: TankProps) {
     super(props);
@@ -21,14 +25,40 @@ export default class Tank extends Component {
 */
 
   componentDidMount() {
-//    this.props.dispatch({type: "DO_IT"});
+    let deg = '45deg';
+    this.terrain.current.style.transform += "rotateX(" + deg + ")";
+    this.ceiling.current.style.transform += "rotateX(" + deg + ")";
+  }
+
+  drawCeiling() {
+/*    
+    let reply = "<table border='1px' borderColor='green'>";
+    let rows = 18;
+    let columns = 50;
+    for (let i = 0; i <= rows - 1; i++) {
+      reply += '<tr>';
+      for (let j = 0; j <= columns - 1; j++) {
+        reply += '<td>' + "　" + '</td>';
+        if (j == (columns - 1)) reply += '</tr>';
+      }
+    }
+    reply += '</table>';
+    return {
+      __html: reply
+    };
+*/    
   }
 
   render() {
     return (
       <div className="Tank">
-        <Disc innerHTMLForFrontFront="a" />
-        <Disc angleOfFront='45deg' top='0px' left='250px' />
+        <div ref={this.terrain} className="Terrain">
+          <Disc angleOfFront='90deg' innerHTMLForFrontFront="material(s)" />
+          <Disc angleOfFront='15deg' top='0px' left='250px' innerHTMLForFrontFront="結ぶ<br />coat with 醤油<br />炙る" />
+        </div>
+        <div ref={this.ceiling} className="Ceiling" >
+          <span dangerouslySetInnerHTML={this.drawCeiling()}></span>
+        </div>
       </div>
     );
   }

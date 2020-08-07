@@ -16,6 +16,7 @@ interface DiscProps {
   heightOfBottom: string;
   // front
   innerHTMLForFrontFront: string;
+  innerHTMLForFrontInner: string;
   backgroundColor: string;
   angleOfFront: any,
   // back
@@ -41,6 +42,7 @@ export default class Disc extends Component<DiscProps, DiscState> {
     // front
     angleOfFront: 0,
     innerHTMLForFrontFront: "",
+    innerHTMLForFrontInner: "",
     // back
     innerHTMLForBackOuter: ""
   };
@@ -85,10 +87,13 @@ export default class Disc extends Component<DiscProps, DiscState> {
 
   drawFront() {
     return (
-          <div ref={this.joint} className="joint">
+          <div ref={this.joint} className="joint Disc">
             <div ref={this.front} className="front" onClick={(e) => {this.onClickForFront(e);}}>
               {this.redraw()}
               <span dangerouslySetInnerHTML={this.drawFrontFront()}></span>
+              <div className="FrontInner">
+                {this.props.innerHTMLForFrontInner}
+              </div>
             </div>
           </div>
     );

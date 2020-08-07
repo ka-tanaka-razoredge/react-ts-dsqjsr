@@ -23,6 +23,24 @@ h1, p {
   left: 0px;  
 }
 
+.Disc {
+}
+
+.Disc .FrontInner {
+  transform-style: preserve-3d;
+  height: 100px;
+  background-color: rgba(200, 200, 200, 0.5);
+  border: 1px solid black;
+  width: 200px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+/*  
+  z-index: 1000;
+*/  
+  transform: rotateX(180deg);
+}
+
 .bottom {
   transform-style: preserve-3d;
   border: 1px solid blue;
@@ -137,4 +155,40 @@ height: 450px;
   top: 0px;
   left: 0px;
 }
+
+/*
+  OpenBoxBed
+*/
+.OpenBoxBed {
+  transform-style: preserve-3d;
+  border: 1px solid blue;
+  width: 200px;
+  height: 30px;
+  background-color: rgba(0, 0, 255, 0.5);
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.OpenBoxBed .Joint {
+  transform-style: preserve-3d;
+  border: 1px solid red;
+  position: absolute;
+  height: 1px;
+  top: 0px;
+  left: 0px;
+}
+
+.OpenBoxBed .Bed {
+  transform-style: preserve-3d;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 1.0);
+  border: 1px solid silver;
+  width: 200px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  z-index: 900;
+}
+
 

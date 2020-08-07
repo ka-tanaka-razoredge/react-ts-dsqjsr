@@ -4,6 +4,8 @@ import './style.css';
 import { connect, Dispatch } from 'react-redux';
 import DiscWrapper from './containers/DiscWrapper';
 import Disc from './Disc';
+import MetalTape from './MetalTape';
+import Historian from './Historian';
 
 interface TankProps {
   dispatch: Dispatch<any>;
@@ -27,7 +29,12 @@ export default class Tank extends Component {
   componentDidMount() {
     let deg = '45deg';
     this.terrain.current.style.transform += "rotateX(" + deg + ")";
+/*
     this.ceiling.current.style.transform += "rotateX(" + deg + ")";
+    this.ceiling.current.addEventListener("done", (e: CustomEvent) => {
+      this.ceiling.current.innerHTML = e.detail.data_1;
+    });
+*/
   }
 
   drawCeiling() {
@@ -53,12 +60,20 @@ export default class Tank extends Component {
     return (
       <div className="Tank">
         <div ref={this.terrain} className="Terrain">
+{/*        
+          <Disc owner={this.ceiling} angleOfFront='90deg' innerHTMLForFrontFront="material(s)" />
+*/}
           <Disc angleOfFront='90deg' innerHTMLForFrontFront="material(s)" />
           <Disc angleOfFront='15deg' top='0px' left='250px' innerHTMLForFrontFront="結ぶ<br />coat with 醤油<br />炙る" />
+          <MetalTape top='100px' innerHTMLForFrontFront=". sholdering peculiar ooMl" innerHTMLForBottomBack="妃"/>
+          <MetalTape top='100px' left='250px' innerHTMLForFrontFront=". sholdering peculiar ooMl" innerHTMLForBottomBack="姫"/>
+          <Historian top='300px' heightOfBottom="150px" innerHTMLForBackOuter="ooHand" />
         </div>
+{/*        
         <div ref={this.ceiling} className="Ceiling" >
           <span dangerouslySetInnerHTML={this.drawCeiling()}></span>
         </div>
+*/}        
       </div>
     );
   }

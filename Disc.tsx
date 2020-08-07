@@ -7,12 +7,19 @@ import { doIt } from './actions';
 
 
 interface DiscProps {
-  innerHTMLForFrontFront: string;
-  backgroundColor: string;
+  owner: HTMLDivElement;
   dispatch: Dispatch<any>;
-  angleOfFront: any,
+  // domain
   top: any;
   left: any;
+  // bottom
+  heightOfBottom: string;
+  // front
+  innerHTMLForFrontFront: string;
+  backgroundColor: string;
+  angleOfFront: any,
+  // back
+  innerHTMLForBackOuter: string,
 }
 
 interface DiscState {
@@ -23,12 +30,19 @@ interface DiscState {
 export default class Disc extends Component<DiscProps, DiscState> {
 
   public static defaultProps: DiscProps = {
-    innerHTMLForFrontFront: "",
-    backgroundColor: "none",
+    owner: null,
     dispatch: null,
-    angleOfFront: 0,
+    // domain
     top: 0,
-    left: 0
+    left: 0,
+    backgroundColor: "none",
+    // bottom
+    heightOfBottom: "0px",
+    // front
+    angleOfFront: 0,
+    innerHTMLForFrontFront: "",
+    // back
+    innerHTMLForBackOuter: ""
   };
 
   routines: any[];
@@ -37,6 +51,9 @@ export default class Disc extends Component<DiscProps, DiscState> {
   bottom = React.createRef<HTMLDivElement>();
   joint = React.createRef<HTMLDivElement>();
   front = React.createRef<HTMLDivElement>();
+
+  backJoint;
+  back;
 
   doRoutine = (function() {
     let along;
@@ -51,28 +68,13 @@ export default class Disc extends Component<DiscProps, DiscState> {
     this.state = {
       innerHTMLForFrontFront: ""
     };
+    this.backJoint = React.createRef<HTMLDivElement>();
+    this.back = React.createRef<HTMLDivElement>();
     this.routines = [];
   }
 
   componentDidMount() {
-//    this.refs["front"].style.transform += "rotateZ(180deg)";
-
-    // as HTMLCollectionOf<HTMLElement>
-//    this.bottom.current.style.transform += "rotateX(45deg)";
     this.joint.current.style.transform += 'rotateX(' + this.props.angleOfFront + ')';
-    
-//    this.props.dispatch(doIt("結ぶ<br />coat 醤油<br />炙る"));
-/*
-    new Promise((resolve, reject) => {setTimeout(resolve, 1000);}).then(() => {
-      this.setState({innerHTMLForFrontFront: 
-        `結ぶ<br />
-        coat 醤油<br />
-        炙る</span>`
-      });
-      this.timer = setInterval(this.doRoutine, 1000);
-    });
-    this.routines.push([() => {this.refs["joint"].style.transform += "rotateX(15deg)";}]);
-*/
   }
 
   drawFrontFront() {
@@ -81,14 +83,36 @@ export default class Disc extends Component<DiscProps, DiscState> {
     };
   }
 
+  drawFront() {
+    return (
+          <div ref={this.joint} className="joint">
+            <div ref={this.front} className="front" onClick={(e) => {this.onClickForFront(e);}}>
+              {this.redraw()}
+              <span dangerouslySetInnerHTML={this.drawFrontFront()}></span>
+            </div>
+          </div>
+    );
+  }
+
+  drawBack() {
+    return (
+      <div ref={this.backJoint}>
+      </div>
+    );
+  }
+
+  drawBottom() {
+  }
+
   onClickForFront(e) {
+    this.props.owner.current.dispatchEvent(new CustomEvent("done", {detail: {data_1: "RazorEdge"}}));
 //    this.props.dispatch(doIt("a", "red"));
   }
 
   redraw() {
     try {
       this.front.current.style.backgroundColor = this.props.backgroundColor;
-      console.log(this.props.backgroundColor);
+//      console.log(this.props.backgroundColor);
     } catch (e) {
       console.log(e);
     }
@@ -98,12 +122,8 @@ export default class Disc extends Component<DiscProps, DiscState> {
     return (
       <div ref={this.domain} style={{position: 'relative', top: this.props.top, left: this.props.left}}>
         <div ref={this.bottom} className="bottom">
-          <div ref={this.joint} className="joint">
-            <div ref={this.front} className="front" onClick={(e) => {this.onClickForFront(e);}}>
-              {this.redraw()}
-              <span dangerouslySetInnerHTML={this.drawFrontFront()}></span>
-            </div>
-          </div>
+          {this.drawFront()}
+          {this.drawBack()}
         </div>
       </div>
     );

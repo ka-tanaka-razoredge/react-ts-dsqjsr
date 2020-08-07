@@ -131,7 +131,7 @@ export default class Disc extends Component<DiscProps, DiscState> {
 
   render() {
     return (
-      <div ref={this.domain} style={{position: 'relative', top: this.props.top, left: this.props.left}}>
+      <div ref={this.domain} style={{position: 'absolute', top: this.props.top, left: this.props.left}}>
         <div ref={this.bottom} className="bottom">
           {this.drawFront()}
           {this.drawBack()}

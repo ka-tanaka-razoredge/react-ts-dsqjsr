@@ -46,7 +46,7 @@ h1, p {
   border: 1px solid blue;
   width: 200px;
   height: 30px;
-  background-color: rgba(0, 0, 255, 1.0);
+  background-color: rgba(0, 0, 255, 0.1);
   position: absolute;
   top: 0px;
   left: 0px;

@@ -72,14 +72,15 @@ export default class Tank extends Component {
             <div>
               <Disc angleOfFront='90deg' innerHTMLForFrontFront="material(s)" innerHTMLForFrontInner="rss: 2<br />reduce able" />
               <Disc top="30px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 3<br />!reduce able" />
-              <Disc top="100px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 2" />
+              <Disc top="100px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 2<br />reduce able" />
             </div>
-          } />
-          <Disc angleOfFront='15deg' top='0px' left='250px' innerHTMLForFrontFront="結ぶ<br />coat with 醤油<br />炙る" />
+          } innerHTMLForBed="prune<br />dropHint(s)<br />rectify" angleOfBed="0deg" />
+          <OpenBoxBed top='0px' left='300px' innerHTMLForBed="結ぶ<br />coat with 醤油<br />炙る"></OpenBoxBed>
           <MetalTape top='100px' left='250px' innerHTMLForFrontFront=". sholdering peculiar ooMl" innerHTMLForBottomBack="妃"/>
           <Historian top='300px' left="250px" heightOfBottom="150px" innerHTMLForBackOuter="ooHand" />
         </div>
 {/*        
+        <Disc angleOfFront='0deg' top='0px' left='250px' innerHTMLForFrontFront="結ぶ<br />coat with 醤油<br />炙る" />
         <div ref={this.ceiling} className="Ceiling" >
           <span dangerouslySetInnerHTML={this.drawCeiling()}></span>
         </div>

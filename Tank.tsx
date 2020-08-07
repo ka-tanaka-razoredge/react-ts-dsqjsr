@@ -12,20 +12,29 @@ interface TankProps {
   dispatch: Dispatch<any>;
 }
 
-export default class Tank extends Component {
+interface TankState {
+  contents: any
+}
+
+export default class Tank extends Component<TankProps, TankState> {
 //export default class Tank extends Component<TankProps> {
+
+  timer;
   terrain = React.createRef<HTMLDivElement>();
   ceiling = React.createRef<HTMLDivElement>();
 
+  children = [];
 
-/*  
+
+  
   constructor(props: TankProps) {
     super(props);
     this.state = {
-      innerHTMLForFrontFront: ""
+      contents: "<div>dummy</div>"
     };
   }
-*/
+
+
 
   componentDidMount() {
     let deg = '45deg';
@@ -40,6 +49,11 @@ export default class Tank extends Component {
       this.ceiling.current.innerHTML = e.detail.data_1;
     });
 */
+    this.timer = setInterval((function() {
+      this.tc += 1;
+      this.doRoutine();
+      if (1000000 <= this.tc) clearInterval(this.timer);
+    }).bind(this), 40);
   }
 
   drawCeiling() {
@@ -59,6 +73,38 @@ export default class Tank extends Component {
       __html: reply
     };
 */    
+  }
+
+  tc = 0;
+
+  doRoutine() {
+
+    let reply;
+    reply = (
+      <div>
+        <Disc angleOfFront='90deg' innerHTMLForFrontFront="material(s)" innerHTMLForFrontInner="rss: 2<br />reduce able" />
+        <Disc top="30px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 3<br />!reduce able" />
+        <Disc top="100px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 2<br />reduce able" />
+      </div>
+    );
+
+    if (this.tc <= 100) {
+      reply = (
+        <div>
+        </div>
+      );
+      this.state.contents = reply;
+
+      if (this.tc == 100) console.log(this.state.contents);
+    } else if (this.tc == 101) {
+      this.state.contents = reply;
+      console.log(this.state.contents);
+    } else {
+//      console.log(reply);
+    }
+
+    return reply;
+
   }
 
   render() {

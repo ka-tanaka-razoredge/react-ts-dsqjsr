@@ -10,6 +10,7 @@ interface OpenBoxBedProps {
   height: any;
   innerHTMLForBed: any;
   angleOfBed: any;
+  contents: any;
 }
 
 interface OpenBoxBedState {

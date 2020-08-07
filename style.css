@@ -77,6 +77,9 @@ h1, p {
 }
 
 
+/*
+  Tank
+*/
 .Tank {
 
 }
@@ -164,7 +167,7 @@ height: 450px;
   border: 1px solid blue;
   width: 200px;
   height: 30px;
-  background-color: rgba(0, 0, 255, 0.5);
+  background-color: rgba(255, 255, 255, 1);
   position: relative;
   top: 0px;
   left: 0px;

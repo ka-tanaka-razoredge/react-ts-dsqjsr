@@ -31,7 +31,9 @@ export default class Tank extends Component {
     let deg = '45deg';
 //    deg = '30deg';
 //    deg = '90deg'; // from the future
+    this.terrain.current.style.transform += "translateX(100px)";
     this.terrain.current.style.transform += "rotateX(" + deg + ")";
+    this.terrain.current.style.transform += "rotateZ(-15deg)";
 /*
     this.ceiling.current.style.transform += "rotateX(" + deg + ")";
     this.ceiling.current.addEventListener("done", (e: CustomEvent) => {

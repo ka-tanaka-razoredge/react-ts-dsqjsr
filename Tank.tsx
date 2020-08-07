@@ -29,6 +29,8 @@ export default class Tank extends Component {
 
   componentDidMount() {
     let deg = '45deg';
+//    deg = '30deg';
+//    deg = '90deg'; // from the future
     this.terrain.current.style.transform += "rotateX(" + deg + ")";
 /*
     this.ceiling.current.style.transform += "rotateX(" + deg + ")";
@@ -64,15 +66,15 @@ export default class Tank extends Component {
 {/*        
           <Disc owner={this.ceiling} angleOfFront='90deg' innerHTMLForFrontFront="material(s)" />
 */}
-          <OpenBoxBed top="0px" left="5px" height="500px" contents={
+          <OpenBoxBed top="0px" left="5px" height="500px" width="200px" contents={
             <div>
-              <Disc angleOfFront='90deg' innerHTMLForFrontFront="material(s)" />
-              <Disc top="200px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 3" />
+              <Disc angleOfFront='90deg' innerHTMLForFrontFront="material(s)" innerHTMLForFrontInner="rss: 2<br />reduce able" />
+              <Disc top="30px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 3<br />!reduce able" />
+              <Disc top="100px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 2" />
             </div>
           } />
           <Disc angleOfFront='15deg' top='0px' left='250px' innerHTMLForFrontFront="結ぶ<br />coat with 醤油<br />炙る" />
           <MetalTape top='100px' left='250px' innerHTMLForFrontFront=". sholdering peculiar ooMl" innerHTMLForBottomBack="妃"/>
-          <MetalTape top='100px' left='250px' innerHTMLForFrontFront=". sholdering peculiar ooMl" innerHTMLForBottomBack="姫"/>
           <Historian top='300px' left="250px" heightOfBottom="150px" innerHTMLForBackOuter="ooHand" />
         </div>
 {/*        

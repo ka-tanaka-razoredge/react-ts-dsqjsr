@@ -85,6 +85,12 @@ export default class Disc extends Component<DiscProps, DiscState> {
     };
   }
 
+  drawFrontInner() {
+    return {
+      __html: this.props.innerHTMLForFrontInner,
+    };
+  }
+
   drawFront() {
     return (
           <div ref={this.joint} className="joint Disc">
@@ -92,7 +98,7 @@ export default class Disc extends Component<DiscProps, DiscState> {
               {this.redraw()}
               <span dangerouslySetInnerHTML={this.drawFrontFront()}></span>
               <div className="FrontInner">
-                {this.props.innerHTMLForFrontInner}
+                <span dangerouslySetInnerHTML={this.drawFrontInner()}></span>
               </div>
             </div>
           </div>
@@ -110,7 +116,7 @@ export default class Disc extends Component<DiscProps, DiscState> {
   }
 
   onClickForFront(e) {
-    this.props.owner.current.dispatchEvent(new CustomEvent("done", {detail: {data_1: "RazorEdge"}}));
+//    this.props.owner.current.dispatchEvent(new CustomEvent("done", {detail: {data_1: "RazorEdge"}}));
 //    this.props.dispatch(doIt("a", "red"));
   }
 

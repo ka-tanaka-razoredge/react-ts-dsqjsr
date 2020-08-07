@@ -6,6 +6,7 @@ import './style.css';
 interface OpenBoxBedProps {
   top: any;
   left: any;
+  width: any;
   height: any;
 }
 
@@ -21,6 +22,7 @@ export default class OpenBoxBed extends Component<OpenBoxBedProps, OpenBoxBedSta
   public static defaultProps: DiscProps = {
     top: "0px",
     left: "0px",
+    width: "400px",
     height: "100px"
   };
 
@@ -31,9 +33,9 @@ export default class OpenBoxBed extends Component<OpenBoxBedProps, OpenBoxBedSta
 
   render() {
     return (
-      <div ref={this.bottom} className="OpenBoxBed" style={{top: this.props.top, left: this.props.left}}>
+      <div ref={this.bottom} className="OpenBoxBed" style={{top: this.props.top, left: this.props.left, width: this.props.width}}>
         <div ref={this.joint} className="Joint">
-          <div ref={this.bed} className="Bed" style={{height: this.props.height}}>
+          <div ref={this.bed} className="Bed" style={{height: this.props.height, width: this.props.width}}>
             {this.props.contents}
           </div>
         </div>

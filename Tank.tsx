@@ -97,7 +97,14 @@ export default class Tank extends Component<TankProps, TankState> {
 
       if (this.tc == 100) console.log(this.state.contents);
     } else if (this.tc == 101) {
-      this.state.contents = reply;
+      reply = (
+            <div>
+              <Disc angleOfFront='90deg' innerHTMLForFrontFront="material(s)" innerHTMLForFrontInner="rss: 2<br />reduce able" />
+              <Disc top="30px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 3<br />!reduce able" />
+              <Disc top="100px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 2<br />reduce able" />
+            </div>
+      );
+      this.setState({contents: reply});
       console.log(this.state.contents);
     } else {
 //      console.log(reply);
@@ -114,12 +121,7 @@ export default class Tank extends Component<TankProps, TankState> {
 {/*        
           <Disc owner={this.ceiling} angleOfFront='90deg' innerHTMLForFrontFront="material(s)" />
 */}
-          <OpenBoxBed top="0px" left="5px" height="500px" width="200px" contents={
-            <div>
-              <Disc angleOfFront='90deg' innerHTMLForFrontFront="material(s)" innerHTMLForFrontInner="rss: 2<br />reduce able" />
-              <Disc top="30px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 3<br />!reduce able" />
-              <Disc top="100px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 2<br />reduce able" />
-            </div>
+          <OpenBoxBed top="0px" left="5px" height="500px" width="200px" contents={this.state.contents
           } innerHTMLForBed="prune<br />dropHint(s)<br />rectify" angleOfBed="0deg" />
           <OpenBoxBed top='0px' left='300px' innerHTMLForBed="結ぶ<br />coat with 醤油<br />炙る"></OpenBoxBed>
           <MetalTape top='100px' left='250px' innerHTMLForFrontFront=". sholdering peculiar ooMl" innerHTMLForBottomBack="妃"/>

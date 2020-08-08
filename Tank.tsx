@@ -8,6 +8,8 @@ import MetalTape from './MetalTape';
 import Historian from './Historian';
 import OpenBoxBed from './OpenBoxBed';
 
+import gif from './pengin2.gif';
+
 interface TankProps {
   dispatch: Dispatch<any>;
 }
@@ -93,19 +95,12 @@ export default class Tank extends Component<TankProps, TankState> {
         <div>
         </div>
       );
-      this.state.contents = reply;
+//      this.state.contents = reply;
 
       if (this.tc == 100) console.log(this.state.contents);
     } else if (this.tc == 101) {
-      reply = (
-            <div>
-              <Disc angleOfFront='90deg' innerHTMLForFrontFront="material(s)" innerHTMLForFrontInner="rss: 2<br />reduce able" />
-              <Disc top="30px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 3<br />!reduce able" />
-              <Disc top="100px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 2<br />reduce able" />
-            </div>
-      );
-      this.setState({contents: reply});
-      console.log(this.state.contents);
+//      this.setState({contents: reply});
+//      console.log(this.state.contents);
     } else {
 //      console.log(reply);
     }
@@ -121,7 +116,14 @@ export default class Tank extends Component<TankProps, TankState> {
 {/*        
           <Disc owner={this.ceiling} angleOfFront='90deg' innerHTMLForFrontFront="material(s)" />
 */}
-          <OpenBoxBed top="0px" left="5px" height="500px" width="200px" contents={this.state.contents
+          <OpenBoxBed top="0px" left="5px" height="500px" width="200px" contents={
+            <div>
+              <Disc angleOfFront='90deg' innerHTMLForFrontFront="material(s)" innerHTMLForFrontInner="rss: 2<br />reduce able" />
+              <Disc top="30px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 3<br />!reduce able" />
+              <Disc top="100px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 2<br />reduce able" />
+              <Disc top="150px" angleOfFront='90deg' innerHTMLForFrontInner="<iframe src='http://razor-edge.net' width='100px' height='100px'></iframe>" />
+              <Disc top="250px" angleOfFront='90deg' innerHTMLForFrontInner={<img src={'http://razor-edge.net/logo1.png'} />} />
+            </div>
           } innerHTMLForBed="prune<br />dropHint(s)<br />rectify" angleOfBed="0deg" />
           <OpenBoxBed top='0px' left='300px' innerHTMLForBed="結ぶ<br />coat with 醤油<br />炙る"></OpenBoxBed>
           <MetalTape top='100px' left='250px' innerHTMLForFrontFront=". sholdering peculiar ooMl" innerHTMLForBottomBack="妃"/>

@@ -9,8 +9,8 @@ import Historian from './Historian';
 import OpenBoxBed from './OpenBoxBed';
 
 
-import gif from './pengin2.gif';
-//const gif = require('http://razor-edge.net/token0.jpg');
+//import gif from './pengin2.gif';
+const gif = require('http://razor-edge.net/token0.jpg');
 
 interface TankProps {
   dispatch: Dispatch<any>;

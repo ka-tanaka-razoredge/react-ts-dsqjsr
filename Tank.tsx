@@ -9,8 +9,8 @@ import Historian from './Historian';
 import OpenBoxBed from './OpenBoxBed';
 
 
-//import gif from './pengin2.gif';
-const gif = require('https://cdn.jsdelivr.net/gh/ka-tanaka-razoredge/react-ts-dsqjsr@master/pengin2.gif');
+import gif from './pengin2.gif';
+//const gif = require('http://razor-edge.net/token0.jpg');
 
 interface TankProps {
   dispatch: Dispatch<any>;
@@ -116,9 +116,8 @@ export default class Tank extends Component<TankProps, TankState> {
   render() {
     return (
       <div className="Tank">
-      
         <img src={gif} />
-      
+
         <div ref={this.terrain} className="Terrain">
 {/*        
           <Disc owner={this.ceiling} angleOfFront='90deg' innerHTMLForFrontFront="material(s)" />

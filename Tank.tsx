@@ -9,9 +9,6 @@ import Historian from './Historian';
 import OpenBoxBed from './OpenBoxBed';
 
 
-//import gif from './pengin2.gif';
-//const gif = require('http://razor-edge.net/token0.jpg');
-
 interface TankProps {
   dispatch: Dispatch<any>;
 }
@@ -127,7 +124,7 @@ export default class Tank extends Component<TankProps, TankState> {
               <Disc top="30px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 3<br />!reduce able" />
               <Disc top="100px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 2<br />reduce able" />
               <Disc top="150px" angleOfFront='90deg' innerHTMLForFrontInner="<iframe src='http://razor-edge.net' width='150px' height='100px'></iframe>" />
-              <Disc top="250px" angleOfFront='90deg' innerHTMLForFrontInner="<img src='' />" />
+              <Disc top="250px" angleOfFront='90deg' innerHTMLForFrontInner="<img src='https://cdn.jsdelivr.net/gh/ka-tanaka-razoredge/react-ts-dsqjsr@master/pengin2.gif' />" />
             </div>
           } innerHTMLForBed="prune<br />dropHint(s)<br />rectify" angleOfBed="0deg" />
           <OpenBoxBed top='0px' left='300px' innerHTMLForBed="結ぶ<br />coat with 醤油<br />炙る"></OpenBoxBed>

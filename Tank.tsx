@@ -8,7 +8,11 @@ import MetalTape from './MetalTape';
 import Historian from './Historian';
 import OpenBoxBed from './OpenBoxBed';
 
-import gif from './pengin2.gif';
+
+//import gif from './pengin2.gif';
+//const gif = '.pengin2.gif';
+const gif = 'http://razor-edge.net/token0.jpg';
+console.log(gif);
 
 interface TankProps {
   dispatch: Dispatch<any>;
@@ -109,9 +113,12 @@ export default class Tank extends Component<TankProps, TankState> {
 
   }
 
+  
+
   render() {
     return (
       <div className="Tank">
+        <img src="http://razor-edge.net/token0.jpg"></img>
         <div ref={this.terrain} className="Terrain">
 {/*        
           <Disc owner={this.ceiling} angleOfFront='90deg' innerHTMLForFrontFront="material(s)" />
@@ -121,8 +128,8 @@ export default class Tank extends Component<TankProps, TankState> {
               <Disc angleOfFront='90deg' innerHTMLForFrontFront="material(s)" innerHTMLForFrontInner="rss: 2<br />reduce able" />
               <Disc top="30px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 3<br />!reduce able" />
               <Disc top="100px" angleOfFront='90deg' innerHTMLForFrontInner="rss: 2<br />reduce able" />
-              <Disc top="150px" angleOfFront='90deg' innerHTMLForFrontInner="<iframe src='http://razor-edge.net' width='100px' height='100px'></iframe>" />
-              <Disc top="250px" angleOfFront='90deg' innerHTMLForFrontInner={<img src={'http://razor-edge.net/logo1.png'} />} />
+              <Disc top="150px" angleOfFront='90deg' innerHTMLForFrontInner="<iframe src='http://razor-edge.net' width='150px' height='100px'></iframe>" />
+              <Disc top="250px" angleOfFront='90deg' innerHTMLForFrontInner="<img src='' />" />
             </div>
           } innerHTMLForBed="prune<br />dropHint(s)<br />rectify" angleOfBed="0deg" />
           <OpenBoxBed top='0px' left='300px' innerHTMLForBed="結ぶ<br />coat with 醤油<br />炙る"></OpenBoxBed>

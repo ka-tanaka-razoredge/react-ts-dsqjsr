@@ -128,11 +128,13 @@ export default class Tank extends Component<TankProps, TankState> {
             </div>
           } innerHTMLForBed="prune<br />dropHint(s)<br />rectify" angleOfBed="0deg" />
           <OpenBoxBed top='0px' left='300px' innerHTMLForBed="結ぶ<br />coat with 醤油<br />炙る"></OpenBoxBed>
-          <MetalTape top='100px' left='250px' innerHTMLForFrontFront=". sholdering peculiar ooMl" innerHTMLForBottomBack="妃"/>
+          
+          <MetalTape top='100px' left='250px' innerHTMLForRightInner=". sholdering peculiar ooMl" innerHTMLForBottomBack="妃"/>
+          
+          <MetalTape top='200px' left='250px' innerHTMLForFrontInner="VCR on Monitor" />
           <Historian top='300px' left="250px" heightOfBottom="150px" innerHTMLForBackOuter="ooHand" />
         </div>
 {/*        
-        <Disc angleOfFront='0deg' top='0px' left='250px' innerHTMLForFrontFront="結ぶ<br />coat with 醤油<br />炙る" />
         <div ref={this.ceiling} className="Ceiling" >
           <span dangerouslySetInnerHTML={this.drawCeiling()}></span>
         </div>

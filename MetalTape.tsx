@@ -15,9 +15,11 @@ interface MetalTapeProps {
   // bottom
   innerHTMLForBottomBack: string;
   // front
-  innerHTMLForFrontFront: string;
+  innerHTMLForFrontInner: string;
   backgroundColor: string;
   angleOfFront: any,
+  // right
+  innerHTMLForRightInner: string;
 }
 
 interface MetalTapeState {
@@ -37,7 +39,9 @@ export default class MetalTape extends Component<MetalTapeProps, MetalTapeState>
     innerHTMLForBottomBack: "",
     // front
     angleOfFront: "45deg",
-    innerHTMLForFrontFront: "",
+    innerHTMLForFrontInner: "",
+    // right
+    innerHTMLForRightInner: ""
   };
 
   routines: any[];
@@ -69,8 +73,12 @@ export default class MetalTape extends Component<MetalTapeProps, MetalTapeState>
   componentDidMount() {
 
     let takePose_1 = () => {
-      this.front.current.style.transform += 'rotateX(180deg)';
-      this.frontJoint.current.style.transform += 'rotateX(' + this.props.angleOfFront + ')';
+      let angle = this.props.angleOfFront;
+      angle = "90deg";
+      this.frontJoint.current.style.transform += 'rotateX(' + angle + ')';
+      this.frontJoint.current.style.transform += 'rotateY(' + '180deg' + ')';
+
+      this.right.current.style.visibility = "hidden";
     };
     let takpPose_2 = () => {
       this.front.current.style.transform += 'rotateX(180deg)';
@@ -83,16 +91,27 @@ export default class MetalTape extends Component<MetalTapeProps, MetalTapeState>
       this.rightJoint.current.style.transform += 'translateY(15px)';
       this.rightJoint.current.style.transform += 'rotateZ(-90deg)';
       this.rightJoint.current.style.transform += "rotateX(45deg)";
+
+      this.front.current.style.visibility = "hidden";
     };
 
-    takePose_1();
+    if (1 <= this.props.innerHTMLForFrontInner.length) {
+      takePose_1();
+    } else {
+      takePose_3();
+    }
 
-    takePose_3();
   }
 
-  drawFrontFront() {
+  drawFrontInner() {
     return {
-      __html: this.props.innerHTMLForFrontFront,
+      __html: this.props.innerHTMLForFrontInner,
+    };
+  }
+
+  drawRightInner() {
+    return {
+      __html: this.props.innerHTMLForRightInner,
     };
   }
 
@@ -132,13 +151,13 @@ export default class MetalTape extends Component<MetalTapeProps, MetalTapeState>
           <div ref={this.frontJoint} className="FrontJoint">
             <div ref={this.front} className="front" onClick={(e) => {this.onClickForFront(e);}}>
               {this.redraw()}
-              <span dangerouslySetInnerHTML={this.drawFrontFront()}></span>
+              <span dangerouslySetInnerHTML={this.drawFrontInner()}></span>
             </div>
           </div>
           <div ref={this.rightJoint} className="RightJoint">
             <div ref={this.right} className="Right" onClick={(e) => {}}>
               {this.redraw()}
-              <span dangerouslySetInnerHTML={this.drawFrontFront()}></span>
+              <span dangerouslySetInnerHTML={this.drawRightInner()}></span>
             </div>
           </div>
         </div>

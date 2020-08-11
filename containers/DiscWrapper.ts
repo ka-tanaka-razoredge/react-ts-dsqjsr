@@ -18,6 +18,9 @@ function getVisibleTodos(todos: Array<ITodoProps>, filter: string): Array<ITodoP
 }
 */
 
+/**
+ * At first, I work like Store.getState(). Then I cram its return into props.
+ */
 const mapStateToProps = (state) => {
   console.log(state);
   return {
@@ -32,6 +35,9 @@ const mapStateToProps = (state) => {
   }
 };
 
+/**
+ * I cram, function(s) that dispatches action into store, into props.
+ */
 /*
 const mapDispatchToProps = (dispatch: Dispatch) =>({
 //    toggleTodo: (id: number) => dispatch(toggleTodo(id))

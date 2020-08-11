@@ -131,7 +131,7 @@ export default class Tank extends Component<TankProps, TankState> {
           
           <MetalTape top='100px' left='250px' innerHTMLForRightInner=". sholdering peculiar ooMl" innerHTMLForBottomBack="妃"/>
           
-          <MetalTape top='200px' left='250px' innerHTMLForFrontInner="VCR on Monitor" />
+          <MetalTape top='200px' left='250px' innerHTMLForFrontInner="VCR on Monitor" innerHTMLForBottomBack="絲" />
           <Historian top='300px' left="250px" heightOfBottom="150px" innerHTMLForBackOuter="ooHand" />
         </div>
 {/*        

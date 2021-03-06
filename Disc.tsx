@@ -118,9 +118,8 @@ export default class Disc extends Component<DiscProps, DiscState> {
   drawBottom() {}
 
   onClickForFront(e) {
-    console.log(this.props);
     //    this.props.owner.current.dispatchEvent(new CustomEvent("done", {detail: {data_1: "RazorEdge"}}));
-    //    this.props.dispatch(doIt("a", "red"));
+    this.props.dispatch(doIt("a", "red"));
   }
 
   redraw() {

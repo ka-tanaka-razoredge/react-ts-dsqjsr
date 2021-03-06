@@ -1,7 +1,7 @@
-import { connect } from 'react-redux'
-import Disc from '../Disc'
+import { connect } from "react-redux";
+import Disc from "../Disc";
 //import { IState, ITodoProps } from '../commons/interfaces';
-import { Dispatch } from 'redux';
+import { Dispatch } from "redux";
 
 /*
 function getVisibleTodos(todos: Array<ITodoProps>, filter: string): Array<ITodoProps> {
@@ -21,7 +21,7 @@ function getVisibleTodos(todos: Array<ITodoProps>, filter: string): Array<ITodoP
 /**
  * At first, I work like Store.getState(). Then I cram its return into props.
  */
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   console.log(state);
   return {
     innerHTMLForFrontFront: state.nameEx.innerHTMLForFrontFront,
@@ -29,9 +29,9 @@ const mapStateToProps = (state) => {
   };
 
   if (1 <= state.nameEx.length) {
-    return {innerHTMLForFrontFront: state.nameEx[0].innerHTMLForFrontFront};
+    return { innerHTMLForFrontFront: state.nameEx[0].innerHTMLForFrontFront };
   } else {
-      return {innerHTMLForFrontFront: "A"};
+    return { innerHTMLForFrontFront: "A" };
   }
 };
 
@@ -46,6 +46,6 @@ const mapDispatchToProps = (dispatch: Dispatch) =>({
 const mapDispatchToProps = (dispatch: Dispatch<any>) => ({ dispatch });
 
 export default connect(
-  mapStateToProps,
+   mapStateToProps,
   mapDispatchToProps
-)(Disc)
+)(Disc);

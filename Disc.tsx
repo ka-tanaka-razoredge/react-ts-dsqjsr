@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import './style.css';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import "./style.css";
 
-import { connect, Dispatch } from 'react-redux';
-import { doIt } from './actions';
-
+import { connect, Dispatch } from "react-redux";
+import { doIt } from "./actions";
+import DiscWrapper from "./containers/DiscWrapper";
 
 interface DiscProps {
   owner: HTMLDivElement;
@@ -18,9 +18,9 @@ interface DiscProps {
   innerHTMLForFrontFront: string;
   innerHTMLForFrontInner: string;
   backgroundColor: string;
-  angleOfFront: any,
+  angleOfFront: any;
   // back
-  innerHTMLForBackOuter: string,
+  innerHTMLForBackOuter: string;
 }
 
 interface DiscState {
@@ -29,7 +29,6 @@ interface DiscState {
 
 // ジェネリクスの第1引数はprops, 第2引数はLocalState
 export default class Disc extends Component<DiscProps, DiscState> {
-
   public static defaultProps: DiscProps = {
     owner: null,
     dispatch: null,
@@ -57,13 +56,13 @@ export default class Disc extends Component<DiscProps, DiscState> {
   backJoint;
   back;
 
-  doRoutine = (function() {
+  doRoutine = function() {
     let along;
     if (1 <= this.routines.length) {
       along = this.routines.pop();
       for (let i = 0; i <= along.length - 1; i++) along[i]();
     }
-  }).bind(this);
+  }.bind(this);
 
   constructor(props: DiscProps) {
     super(props);
@@ -76,54 +75,58 @@ export default class Disc extends Component<DiscProps, DiscState> {
   }
 
   componentDidMount() {
-    this.joint.current.style.transform += 'rotateX(' + this.props.angleOfFront + ')';
+    this.joint.current.style.transform +=
+      "rotateX(" + this.props.angleOfFront + ")";
   }
 
   drawFrontFront() {
     return {
-      __html: this.props.innerHTMLForFrontFront,
+      __html: this.props.innerHTMLForFrontFront
     };
   }
 
   drawFrontInner() {
     return {
-      __html: this.props.innerHTMLForFrontInner,
+      __html: this.props.innerHTMLForFrontInner
     };
   }
 
   drawFront() {
     return (
-          <div ref={this.joint} className="joint Disc">
-            <div ref={this.front} className="front" onClick={(e) => {this.onClickForFront(e);}}>
-              {this.redraw()}
-              <span dangerouslySetInnerHTML={this.drawFrontFront()}></span>
-              <div className="FrontInner">
-                <span dangerouslySetInnerHTML={this.drawFrontInner()}></span>
-              </div>
-            </div>
+      <div ref={this.joint} className="joint Disc">
+        <div
+          ref={this.front}
+          className="front"
+          onClick={e => {
+            this.onClickForFront(e);
+          }}
+        >
+          {this.redraw()}
+          <span dangerouslySetInnerHTML={this.drawFrontFront()} />
+          <div className="FrontInner">
+            <span dangerouslySetInnerHTML={this.drawFrontInner()} />
           </div>
-    );
-  }
-
-  drawBack() {
-    return (
-      <div ref={this.backJoint}>
+        </div>
       </div>
     );
   }
 
-  drawBottom() {
+  drawBack() {
+    return <div ref={this.backJoint} />;
   }
 
+  drawBottom() {}
+
   onClickForFront(e) {
-//    this.props.owner.current.dispatchEvent(new CustomEvent("done", {detail: {data_1: "RazorEdge"}}));
-//    this.props.dispatch(doIt("a", "red"));
+    console.log(this.props);
+    //    this.props.owner.current.dispatchEvent(new CustomEvent("done", {detail: {data_1: "RazorEdge"}}));
+    //    this.props.dispatch(doIt("a", "red"));
   }
 
   redraw() {
     try {
       this.front.current.style.backgroundColor = this.props.backgroundColor;
-//      console.log(this.props.backgroundColor);
+      //      console.log(this.props.backgroundColor);
     } catch (e) {
       console.log(e);
     }
@@ -131,7 +134,14 @@ export default class Disc extends Component<DiscProps, DiscState> {
 
   render() {
     return (
-      <div ref={this.domain} style={{position: 'absolute', top: this.props.top, left: this.props.left}}>
+      <div
+        ref={this.domain}
+        style={{
+          position: "absolute",
+          top: this.props.top,
+          left: this.props.left
+        }}
+      >
         <div ref={this.bottom} className="bottom">
           {this.drawFront()}
           {this.drawBack()}

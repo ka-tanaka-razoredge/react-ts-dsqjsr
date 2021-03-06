@@ -8,10 +8,19 @@ import { connect, Dispatch } from "react-redux";
 
 import { Provider } from "react-redux";
 import { createStore } from "redux";
+// import with doName what exported in reducers/index.ts?
 import rootReducer from "./reducers";
 
 const store = createStore(rootReducer);
-Disc = connect()(Disc);
+
+const mapStateToProps = state => {
+  return {
+    innerHTMLForFrontFront: state.nameEx.innerHTMLForFrontFront
+  };
+};
+
+// TODO
+Disc = connect(mapStateToProps)(Disc);
 
 interface AppProps {}
 interface AppState {
